@@ -11,13 +11,23 @@ const person = {
   age: 19,
 };
 export function Home() {
-  //获取user切片,使用user中的state中的数据：user.name
-  const { user } = useSelector((state: RootState) => state);
+  //切片useSlice的返回值时reducer,从reducer中读取userSlice module 中的数据
+  const { name } = useSelector((state: RootState) => state.userReducer);
+
+  /**
+    console.log(useSelector((state: RootState) => state));
+    {
+    "userReducer": {
+        "name": "山海",
+        "age": 20
+      }
+    }
+   */
   const dispatch = useDispatch();
 
   return (
     <div>
-      <p>{user.name}</p>
+      <p>{name}</p>
       <button onClick={() => dispatch(setName("山海"))}>设置name</button>
       <button onClick={() => dispatch(getUserInfos(person) as any)}>
         异步获取name,并设置name

@@ -55,3 +55,18 @@ export const userSlice = createSlice({
 
 // 导出actions
 export const { setName, setAge } = userSlice.actions;
+export const {reducer:userReducer}=userSlice;//userSlice 的返回值时reducer
+
+
+//读取切片中的数据
+//const { name } = useSelector((state: RootState) => state.userReducer);
+  
+  /**
+    console.log(useSelector((state: RootState) => state));
+    {
+    "userReducer": {
+        "name": "山海",
+        "age": 20
+      }
+    }
+   */
